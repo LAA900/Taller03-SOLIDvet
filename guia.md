@@ -217,16 +217,19 @@ Checklist de validación:
 
 | Criterio | Sí/No |
 | --- | --- |
-| El proyecto compila | |
-| Ningún animal implementa acciones imposibles | |
-| No hay `UnsupportedOperationException` por capacidades naturales | |
-| El código cliente usa la interfaz correcta según la acción | |
+| El proyecto compila |Sí |
+| Ningún animal implementa acciones imposibles |Sí |
+| No hay `UnsupportedOperationException` por capacidades naturales |Sí |
+| El código cliente usa la interfaz correcta según la acción |Sí |
 
 Preguntas de discusión:
 
 - ¿Por qué lanzar `UnsupportedOperationException` puede ser señal de mal diseño?
+Porque indica que una clase heredó un método que no puede cumplir.
 - ¿Qué contrato estaba prometiendo `Animal`?
+Prometía que todos los animales podían volar, nadar y caminar. Lo cual no es cierto
 - ¿Cómo cambia el diseño cuando modelamos capacidades en lugar de herencia amplia?
+Cada animal implementa únicamente las acciones que puede realizar, lo que reduce errores y facilita extender el sistema.
 
 ## Integrante 4 - DIP/ISP
 
@@ -299,7 +302,7 @@ Preguntas de discusión:
 | --- | --- | --- | --- | --- |
 | SRP | Sí| Sí| Sí|El proyecto compila y funciona al ubicar cada metodo en su clase correspondiente|
 | OCP | Sí| Sí| Sí|El proyecto compila y funciona al heredar de Tratamiento y ubicar cada tipo en una clase|
-| LSP | | | | |
+| LSP |Sí | Sí| Sí|El proyecto compila y funciona al segmentar las interfaces y crear un animal por su clase|
 | ISP/DIP | | | | |
 
 Comandos mínimos:

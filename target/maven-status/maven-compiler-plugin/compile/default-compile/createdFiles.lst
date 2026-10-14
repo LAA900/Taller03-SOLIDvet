@@ -1,5 +1,8 @@
 clinicaveterinaria\model\VacunaTratamiento.class
 clinicaveterinaria\model\FisioterapiaTratamiento.class
+clinicaveterinaria\interfaces\Nadador.class
 clinicaveterinaria\model\MedicamentoTratamiento.class
+clinicaveterinaria\interfaces\Volador.class
 clinicaveterinaria\model\CirugiaTratamiento.class
 clinicaveterinaria\service\AuditoriaService.class
+clinicaveterinaria\interfaces\Caminador.class

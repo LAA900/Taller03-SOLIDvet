@@ -53,7 +53,7 @@ public class Main {
         diagnosticoService.diagnosticar(citaDesdeModelo, "Ejemplo de SRP violado desde el modelo.");
         System.out.println(reporteService.crearReporte(veterinario, citaDesdeModelo));
 
-        Animal pez = new Pez(3, "Nemo");
+        Pez pez = new Pez(3, "Nemo");
         pez.nadar();
         System.out.println("El pez heredó caminar() y volar(), aunque no debe usarlos.");
         System.out.println("Tratamiento OCP violado pero funcional: " + tratamiento.obtenerIndicaciones());

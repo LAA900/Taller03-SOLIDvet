@@ -18,4 +18,6 @@ public interface IBaseDatos {
     List<Tratamiento> getTratamientos();
 
     List<Factura> getFacturas();
+    
+    void conectar();
 }

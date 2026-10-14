@@ -285,16 +285,19 @@ Checklist de validación:
 
 | Criterio | Sí/No |
 | --- | --- |
-| El proyecto compila | |
-| `RecepcionService` no implementa métodos innecesarios | |
-| `Clinica` no usa `new` para dependencias principales | |
-| Las dependencias se reciben por constructor | |
+| El proyecto compila |Sí |
+| `RecepcionService` no implementa métodos innecesarios |Sí |
+| `Clinica` no usa `new` para dependencias principales |Sí |
+| Las dependencias se reciben por constructor |Sí |
 
 Preguntas de discusión:
 
 - ¿Qué problema causa una interfaz gigante en equipos grandes?
+Obliga a las clases a implementar métodos que no necesitan
 - ¿Por qué `new DirectoBaseDatos()` dificulta cambiar o probar la clase?
+Porque la clase queda acoplada directamente a esa implementación. Si queremos usar otra base de datos o una implementación simulada para pruebas, debemos modificar el código de la clase que crea el objeto.
 - ¿Qué dependencia debería conocer el código de alto nivel: interfaz o clase concreta?
+Debería depender de una interfaz o abstracción
 
 ## Checklist de validación general
 
@@ -302,8 +305,8 @@ Preguntas de discusión:
 | --- | --- | --- | --- | --- |
 | SRP | Sí| Sí| Sí|El proyecto compila y funciona al ubicar cada metodo en su clase correspondiente|
 | OCP | Sí| Sí| Sí|El proyecto compila y funciona al heredar de Tratamiento y ubicar cada tipo en una clase|
-| LSP |Sí | Sí| Sí|El proyecto compila y funciona al segmentar las interfaces y crear un animal por su clase|
-| ISP/DIP | | | | |
+| LSP | Sí| Sí| Sí|El proyecto compila y funciona al segmentar las interfaces y crear un animal por su clase|
+| ISP/DIP | Sí| Sí| Sí|El proyecto compila y funciona al arreglar las dependencias y implementaciones|
 
 Comandos mínimos:
 

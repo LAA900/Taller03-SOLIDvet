@@ -43,4 +43,7 @@ public class BaseDatos implements IBaseDatos {
         return facturas;
     }
 
+    public void conectar(){
+        System.out.println("Conectado a la base simulada con new DirectoBaseDatos().");
+    }
 }

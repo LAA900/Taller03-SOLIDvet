@@ -2,7 +2,5 @@ package clinicaveterinaria.repository;
 
 
 public class DirectoBaseDatos extends BaseDatos {
-    public void conectar() {
-        System.out.println("Conectado a la base simulada con new DirectoBaseDatos().");
-    }
+    //No la borro porque no vi que era requisito
 }

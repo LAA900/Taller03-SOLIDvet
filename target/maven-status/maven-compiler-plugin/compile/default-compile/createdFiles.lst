@@ -1,1 +1,5 @@
+clinicaveterinaria\model\VacunaTratamiento.class
+clinicaveterinaria\model\FisioterapiaTratamiento.class
+clinicaveterinaria\model\MedicamentoTratamiento.class
+clinicaveterinaria\model\CirugiaTratamiento.class
 clinicaveterinaria\service\AuditoriaService.class

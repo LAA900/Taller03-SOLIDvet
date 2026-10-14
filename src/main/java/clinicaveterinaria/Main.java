@@ -1,5 +1,6 @@
 package clinicaveterinaria;
 
+import clinicaveterinaria.interfaces.ITratamiento;
 import clinicaveterinaria.model.*;
 import clinicaveterinaria.repository.*;
 import clinicaveterinaria.service.*;
@@ -21,7 +22,7 @@ public class Main {
 
         Mascota mascota = new Mascota(1, "Luna", TipoAnimal.PERRO, 4, "Ana Perez");
         Veterinario veterinario = new Veterinario(1, "Dr. Ruiz", "Medicina general", true);
-        Tratamiento tratamiento = new Tratamiento(1, TipoTratamiento.CIRUGIA, "Esterilizacion", 120.0);
+        Tratamiento tratamiento = new CirugiaTratamiento(1, TipoTratamiento.CIRUGIA, "Esterilizacion", 120.0);
 
         mascotaService.crearMascota(mascota);
         veterinarioCrudService.crearVeterinario(veterinario);
@@ -36,8 +37,8 @@ public class Main {
         System.out.println(mascotaService.obtenerMascota(1));
         System.out.println(cita);
         System.out.println(factura);
-        System.out.println("Preparacion: " + tratamientoService.prepararSala(tratamiento));
-        System.out.println("Costo con impuestos: " + new CalculadoraCostoTratamiento().calcularConImpuestos(tratamiento));
+        System.out.println("Preparacion: " + tratamientoService.prepararSala((ITratamiento) tratamiento));
+        System.out.println("Costo con impuestos: " + new CalculadoraCostoTratamiento().calcularConImpuestos((ITratamiento) tratamiento));
         System.out.println("Citas Dr. Ruiz: " + reporteService.generarReporteCitasPorVeterinario(1).size());
         System.out.println("Mascotas de Ana Perez: " + reporteService.generarReporteMascotasPorDueno("Ana Perez").size());
         System.out.println("Ingresos del mes: " + reporteService.calcularIngresosMensual());

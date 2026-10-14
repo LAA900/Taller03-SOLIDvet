@@ -165,17 +165,19 @@ Checklist de validación:
 
 | Criterio | Sí/No |
 | --- | --- |
-| El proyecto compila | |
-| No hay condicional gigante por tipo en la lógica nueva | |
-| Cada tratamiento conoce su propio costo e indicaciones | |
-| Agregar un nuevo tratamiento requiere crear una clase, no editar todas | |
+| El proyecto compila |Sí |
+| No hay condicional gigante por tipo en la lógica nueva |Sí |
+| Cada tratamiento conoce su propio costo e indicaciones |Sí|
+| Agregar un nuevo tratamiento requiere crear una clase, no editar todas |Sí |
 
 Preguntas de discusión:
 
 - ¿Por qué los condicionales repetidos hacen más caro el cambio?
+Porque al agregar un nuevo tipo de tratamiento debemos modificar varias clases que contienen condicionales.
 - ¿Qué pasaría si agregamos `Odontologia` como tratamiento?
+crearíamos una clase OdontologiaTratamiento que implemente los comportamientos necesarios, sin modificar la lógica de las clases existentes.
 - ¿Cuándo una interfaz ayuda a extender el sistema?
-
+Cuando define un contrato común que distintas clases pueden implementar. Así, los servicios trabajan con la interfaz y no dependen de una implementación específica.
 ## Integrante 3 - LSP
 
 Principio: Liskov Substitution Principle. Una subclase debe poder reemplazar a su clase base sin romper el programa.
@@ -295,8 +297,8 @@ Preguntas de discusión:
 
 | Equipo | Compila | Ejecuta | Cumple SOLID | Evidencia breve |
 | --- | --- | --- | --- | --- |
-| SRP | | | | |
-| OCP | | | | |
+| SRP | Sí| Sí| Sí|El proyecto compila y funciona al ubicar cada metodo en su clase correspondiente|
+| OCP | Sí| Sí| Sí|El proyecto compila y funciona al heredar de Tratamiento y ubicar cada tipo en una clase|
 | LSP | | | | |
 | ISP/DIP | | | | |
 

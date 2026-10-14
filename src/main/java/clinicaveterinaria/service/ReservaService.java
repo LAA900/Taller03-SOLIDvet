@@ -21,4 +21,9 @@ public class ReservaService {
         veterinario.setDisponible(false);
         return cita;
     }
+    
+    public Cita reservarCita(Veterinario vet, int citaId, Mascota mascota, LocalDate fecha) {
+        vet.disponible = false;
+        return new Cita(citaId, mascota, vet, fecha, "Pendiente", EstadoCita.PROGRAMADA);
+    }
 }

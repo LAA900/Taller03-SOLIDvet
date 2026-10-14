@@ -7,14 +7,16 @@ import java.util.List;
 
 public class MascotaService {
     private final BaseDatos baseDatos;
+    private AuditoriaService auditoriaservice;
 
-    public MascotaService(BaseDatos baseDatos) {
+    public MascotaService(BaseDatos baseDatos,AuditoriaService auditoriaservice) {
         this.baseDatos = baseDatos;
+        this.auditoriaservice = auditoriaservice;
     }
 
     public void crearMascota(Mascota mascota) {
         baseDatos.getMascotas().add(mascota);
-        baseDatos.registrarOperacion("crearMascota");
+        auditoriaservice.registrarOperacion("crearMascota");
     }
 
     public Mascota obtenerMascota(int id) {
@@ -33,7 +35,7 @@ public class MascotaService {
 
     public void eliminarMascota(int id) {
         baseDatos.getMascotas().removeIf(mascota -> mascota.getId() == id);
-        baseDatos.registrarOperacion("eliminarMascota");
+        auditoriaservice.registrarOperacion("eliminarMascota");
     }
 
     public List<Mascota> listarMascotas() {

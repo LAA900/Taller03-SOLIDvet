@@ -9,3 +9,4 @@ public class DiagnosticoService {
         cita.setEstado(EstadoCita.ATENDIDA);
     }
 }
+

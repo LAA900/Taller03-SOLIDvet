@@ -3,6 +3,7 @@ package clinicaveterinaria.service;
 import clinicaveterinaria.model.Cita;
 import clinicaveterinaria.model.Factura;
 import clinicaveterinaria.model.Mascota;
+import clinicaveterinaria.model.Veterinario;
 import clinicaveterinaria.repository.BaseDatos;
 
 import java.time.LocalDate;
@@ -11,9 +12,11 @@ import java.util.List;
 
 public class ReporteService {
     private final BaseDatos baseDatos;
+    private AuditoriaService auditoriaservice;
 
-    public ReporteService(BaseDatos baseDatos) {
+    public ReporteService(BaseDatos baseDatos,AuditoriaService auditoriaservice) {
         this.baseDatos = baseDatos;
+        this.auditoriaservice = auditoriaservice;
     }
 
     public List<Cita> generarReporteCitasPorVeterinario(int veterinarioId) {
@@ -49,4 +52,14 @@ public class ReporteService {
         }
         return total;
     }
+    
+    public String crearReporte(Veterinario vet,Cita cita) {
+        return "Reporte: " + vet.nombre + " atendio a " +
+                cita.getMascota().getNombre() + " con diagnostico " + cita.getDiagnostico();
+    }
+    
+    public String generarResumenOperaciones() {
+        return "Resumen interno: " + auditoriaservice.getAuditoria();
+    }
+    
 }

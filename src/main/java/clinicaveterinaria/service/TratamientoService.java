@@ -9,14 +9,16 @@ import java.util.List;
 
 public class TratamientoService {
     private final BaseDatos baseDatos;
+    private AuditoriaService auditoriaservice;
 
-    public TratamientoService(BaseDatos baseDatos) {
+    public TratamientoService(BaseDatos baseDatos,AuditoriaService auditoriaservice) {
         this.baseDatos = baseDatos;
+        this.auditoriaservice = auditoriaservice;
     }
 
     public void crearTratamiento(Tratamiento tratamiento) {
         baseDatos.getTratamientos().add(tratamiento);
-        baseDatos.registrarOperacion("crearTratamiento");
+        auditoriaservice.registrarOperacion("crearTratamiento");
     }
 
     public Tratamiento obtenerTratamiento(int id) {
@@ -35,7 +37,7 @@ public class TratamientoService {
 
     public void eliminarTratamiento(int id) {
         baseDatos.getTratamientos().removeIf(tratamiento -> tratamiento.getId() == id);
-        baseDatos.registrarOperacion("eliminarTratamiento");
+        auditoriaservice.registrarOperacion("eliminarTratamiento");
     }
 
     public String prepararSala(Tratamiento tratamiento) {

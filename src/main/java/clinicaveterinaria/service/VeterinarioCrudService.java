@@ -7,14 +7,16 @@ import java.util.List;
 
 public class VeterinarioCrudService {
     private final BaseDatos baseDatos;
+    private AuditoriaService auditoriaservice;
 
-    public VeterinarioCrudService(BaseDatos baseDatos) {
+    public VeterinarioCrudService(BaseDatos baseDatos,AuditoriaService auditoriaservice) {
         this.baseDatos = baseDatos;
+        this.auditoriaservice = auditoriaservice;
     }
 
     public void crearVeterinario(Veterinario veterinario) {
         baseDatos.getVeterinarios().add(veterinario);
-        baseDatos.registrarOperacion("crearVeterinario");
+        auditoriaservice.registrarOperacion("crearVeterinario");
     }
 
     public Veterinario obtenerVeterinario(int id) {
@@ -33,7 +35,7 @@ public class VeterinarioCrudService {
 
     public void eliminarVeterinario(int id) {
         baseDatos.getVeterinarios().removeIf(veterinario -> veterinario.getId() == id);
-        baseDatos.registrarOperacion("eliminarVeterinario");
+        auditoriaservice.registrarOperacion("eliminarVeterinario");
     }
 
     public List<Veterinario> listarVeterinarios() {

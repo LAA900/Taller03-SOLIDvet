@@ -7,14 +7,16 @@ import java.util.List;
 
 public class CitaService {
     private final BaseDatos baseDatos;
+    private AuditoriaService auditoriaservice;
 
-    public CitaService(BaseDatos baseDatos) {
+    public CitaService(BaseDatos baseDatos,AuditoriaService auditoriaservice) {
         this.baseDatos = baseDatos;
+        this.auditoriaservice = auditoriaservice;
     }
 
     public void crearCita(Cita cita) {
         baseDatos.getCitas().add(cita);
-        baseDatos.registrarOperacion("crearCita");
+        auditoriaservice.registrarOperacion("crearCita");
     }
 
     public Cita obtenerCita(int id) {
@@ -33,7 +35,7 @@ public class CitaService {
 
     public void eliminarCita(int id) {
         baseDatos.getCitas().removeIf(cita -> cita.getId() == id);
-        baseDatos.registrarOperacion("eliminarCita");
+        auditoriaservice.registrarOperacion("eliminarCita");
     }
 
     public List<Cita> listarCitas() {

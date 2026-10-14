@@ -18,14 +18,15 @@ public class ServicioClinicaCompleto implements IServicioClinica {
     private final TratamientoService tratamientoService;
     private final FacturaService facturaService;
     private final ReporteService reporteService;
+    private AuditoriaService auditoriaservice;
 
-    public ServicioClinicaCompleto(BaseDatos baseDatos) {
-        this.mascotaService = new MascotaService(baseDatos);
-        this.veterinarioService = new VeterinarioCrudService(baseDatos);
-        this.citaService = new CitaService(baseDatos);
-        this.tratamientoService = new TratamientoService(baseDatos);
-        this.facturaService = new FacturaService(baseDatos);
-        this.reporteService = new ReporteService(baseDatos);
+    public ServicioClinicaCompleto(BaseDatos baseDatos,AuditoriaService auditoriaservice) {
+        this.mascotaService = new MascotaService(baseDatos,auditoriaservice);
+        this.veterinarioService = new VeterinarioCrudService(baseDatos,auditoriaservice);
+        this.citaService = new CitaService(baseDatos,auditoriaservice);
+        this.tratamientoService = new TratamientoService(baseDatos,auditoriaservice);
+        this.facturaService = new FacturaService(baseDatos,auditoriaservice);
+        this.reporteService = new ReporteService(baseDatos,auditoriaservice);
     }
 
     @Override

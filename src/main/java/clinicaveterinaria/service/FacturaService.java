@@ -7,14 +7,16 @@ import java.util.List;
 
 public class FacturaService {
     private final BaseDatos baseDatos;
+    private AuditoriaService auditoriaservice;
 
-    public FacturaService(BaseDatos baseDatos) {
+    public FacturaService(BaseDatos baseDatos,AuditoriaService auditoriaservice) {
         this.baseDatos = baseDatos;
+        this.auditoriaservice = auditoriaservice;
     }
 
     public void crearFactura(Factura factura) {
         baseDatos.getFacturas().add(factura);
-        baseDatos.registrarOperacion("crearFactura");
+        auditoriaservice.registrarOperacion("crearFactura");
     }
 
     public Factura obtenerFactura(int id) {
@@ -33,7 +35,7 @@ public class FacturaService {
 
     public void eliminarFactura(int id) {
         baseDatos.getFacturas().removeIf(factura -> factura.getId() == id);
-        baseDatos.registrarOperacion("eliminarFactura");
+        auditoriaservice.registrarOperacion("eliminarFactura");
     }
 
     public void pagarFactura(int id) {

@@ -91,16 +91,19 @@ Checklist de validación:
 
 | Criterio | Sí/No |
 | --- | --- |
-| El proyecto compila | |
-| `Veterinario` ya no reserva, diagnostica, factura ni reporta | |
-| La funcionalidad del `Main` se mantiene | |
-| Los nombres de servicios son claros | |
+| El proyecto compila |Sí |
+| `Veterinario` ya no reserva, diagnostica, factura ni reporta |Sí |
+| La funcionalidad del `Main` se mantiene |Sí |
+| Los nombres de servicios son claros |Sí |
 
 Preguntas de discusión:
 
 - ¿Cuántas razones para cambiar tenía `Veterinario` antes del refactoring?
+5
 - ¿Qué ganamos al separar modelo y servicios?
+mejor organización del código, menor acoplamiento y mayor facilidad para mantener y ampliar el sistema.
 - ¿Qué clase debería cambiar si mañana cambia el formato del reporte?
+ReporteService
 
 ## Integrante 2 - OCP
 
